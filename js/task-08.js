@@ -1,14 +1,15 @@
 const form = document.querySelector("form");
 form.addEventListener("submit", (event) => {
   event.preventDefault();
-
-  if (form.elements.email.value === "" || form.elements.password.value === "") {
+  const email = event.target.elements.email.value.trim();
+  const password = event.target.elements.password.value;
+  if (email === "" || password === "") {
     alert("Введіть ваші дані");
     return;
   }
   console.log({
-    email: form.elements.email.value,
-    password: form.elements.password.value,
+    email,
+    password,
   });
-  form.reset();
+  event.target.reset();
 });
